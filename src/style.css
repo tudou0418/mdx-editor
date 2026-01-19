@@ -1,0 +1,36 @@
+/**
+ * 文件路径: src/style.css
+ * 职责: 注入 Tailwind 基础样式及编辑器专用排版补丁。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --editor-bg: #0d1117;
+  --preview-bg: #fafafa;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--editor-bg);
+}
+
+/* 隐藏滚动条但保留滚动功能 */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* 代码字体强制覆盖 */
+pre, code, textarea {
+  font-family: 'Fira Code', monospace !important;
+}
+
+/* 编辑器光标颜色 */
+textarea {
+  caret-color: #3b82f6;
+}
